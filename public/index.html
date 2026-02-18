@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Video Downloader Pro - Made by Zero</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 Video Downloader Pro</h1>
+            <p class="subtitle">YouTube • Instagram • Facebook • Pinterest</p>
+            <p class="subtitle">Download videos from any platform</p>
+        </header>
+
+        <div class="url-section">
+            <div class="input-group">
+                <input type="url" id="videoUrl" placeholder="Enter video URL (YouTube, Instagram, Facebook...)">
+                <button class="rgb-button" onclick="getVideoInfo()">GET INFO</button>
+            </div>
+
+            <!-- Loading -->
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Fetching video information...</p>
+            </div>
+
+            <!-- Error -->
+            <div class="error-message" id="errorMessage">
+                ⚠️ Something went wrong. Please try again.
+            </div>
+
+            <!-- Video Card -->
+            <div class="video-card" id="videoCard">
+                <div class="thumbnail-container">
+                    <img class="thumbnail" id="thumbnail" src="" alt="Video Thumbnail">
+                    <div class="no-thumbnail" id="noThumbnail" style="display: none;">
+                        🎥 No thumbnail available
+                    </div>
+                </div>
+                
+                <div class="video-info">
+                    <span class="platform-badge" id="platform">YouTube</span>
+                    <h2 class="video-title" id="title">Video Title</h2>
+                    <div class="uploader" id="uploader">Uploader</div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value" id="duration">0:00</div>
+                            <div class="stat-label">Duration</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="views">0</div>
+                            <div class="stat-label">Views</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="likes">0</div>
+                            <div class="stat-label">Likes</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="comments">0</div>
+                            <div class="stat-label">Comments</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="uploadDate">Date</div>
+                            <div class="stat-label">Uploaded</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="maxQuality">HD</div>
+                            <div class="stat-label">Quality</div>
+                        </div>
+                    </div>
+
+                    <!-- Quality Selector -->
+                    <div class="quality-selector" id="qualitySelector" style="display: none;">
+                        <label for="qualitySelect">🎥 Select Quality:</label>
+                        <select id="qualitySelect"></select>
+                        <p id="qualityInfo"></p>
+                    </div>
+
+                    <div class="description" id="description">
+                        No description available...
+                    </div>
+
+                    <div class="download-section">
+                        <button class="download-btn" onclick="downloadVideo()" id="downloadBtn" disabled>
+                            ⬇️ DOWNLOAD VIDEO (Auto-delete in 1 min)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="made-by">
+            <p>Made with <span>❤️</span> by Zero</p>
+            <p style="font-size: 0.8rem; margin-top: 8px;">© 2024 All Rights Reserved</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

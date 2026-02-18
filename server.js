@@ -37,7 +37,7 @@ app.post('/info', (req, res) => {
         return res.json({ error: 'URL provide karo' });
     }
 
-    const command = `yt-dlp --dump-json --no-download ${cookiesOption} "${url}"`;
+    const command = `./yt-dlp --dump-json --no-download ${cookiesOption} "${url}"`
     
     exec(command, { maxBuffer: 1024 * 1024 * 10 }, (error, stdout, stderr) => {
         if (error) {
@@ -111,7 +111,7 @@ app.post('/download', (req, res) => {
         formatOption = `-f "best[height<=${quality}]+bestaudio/best[height<=${quality}]" --merge-output-format mp4`;
     }
     
-    const command = `yt-dlp ${formatOption} --no-playlist --embed-metadata ${cookiesOption} "${url}" -o "${outputPath}"`;
+    const command = `./yt-dlp ${formatOption} --no-playlist --embed-metadata ${cookiesOption} "${url}" -o "${outputPath}"`
     
     exec(command, { maxBuffer: 1024 * 1024 * 1024 }, (error) => {
         if (error) {
